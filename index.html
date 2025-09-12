@@ -386,8 +386,7 @@
             display: grid;
             grid-template-columns: repeat(2, auto);
             justify-content: center;
-            column-gap: 10px;
-            row-gap: 10px;
+            gap: 100px;
             padding: 100px;
             scroll-behavior: auto;
             scrollbar-width: none;
@@ -401,6 +400,43 @@
 
         #people_images p {
             font-size: 1rem;
+        }
+
+        .people-card {
+            position: relative;
+            display: inline-block;
+        }
+
+        .people-card img {
+            position: relative;
+            width: 260px;
+            height: 200px;
+            border-radius: 12px;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .people-card img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .people-card img:hover {
+            transform: translate(-30px, -30px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+        }
+
+
+        .people-card .card-bg {
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: 260px;
+            height: 200px;
+            background: var(--card-color);
+            border-radius: 12px;
+            z-index: 1;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
         }
 
         /* ================= Footer ================= */
@@ -1153,15 +1189,27 @@
 
     <!-- ================= PEOPLE ================= -->
     <section id="people" class="section-wrapper">
-        <!-- Images on left side (section-content) -->
+        <!-- Cards with images -->
         <div id="people_content" class="section-content">
-            <img src="https://picsum.photos/300/250?random=7" alt="People Img">
-            <img src="https://picsum.photos/300/250?random=8" alt="People Img">
-            <img src="https://picsum.photos/300/250?random=8" alt="People Img">
-            <img src="https://picsum.photos/300/250?random=7" alt="People Img">
+            <div class="people-card">
+                <div class="card-bg"></div>
+                <img src="https://picsum.photos/300/250?random=7" alt="People Img">
+            </div>
+            <div class="people-card">
+                <div class="card-bg"></div>
+                <img src="https://picsum.photos/300/250?random=8" alt="People Img">
+            </div>
+            <div class="people-card">
+                <div class="card-bg"></div>
+                <img src="https://picsum.photos/300/250?random=9" alt="People Img">
+            </div>
+            <div class="people-card">
+                <div class="card-bg"></div>
+                <img src="https://picsum.photos/300/250?random=10" alt="People Img">
+            </div>
         </div>
 
-        <!-- Text content on right side (section-images) -->
+        <!-- Text content -->
         <div id="people_images" class="section-images peoples"
             style="background: var(--accent-color); color: #fff; text-align:left; padding:20px; justify-content:center;">
             <h1>PEOPLE</h1>
@@ -1173,14 +1221,16 @@
             </p>
 
             <h4>Role Management</h4>
-            <p>HiVE allows teams and individuals to access
+            <p>
+                HiVE allows teams and individuals to access
                 the company resources as per the privileges
                 assigned to them across the organization.
                 Organization structures can be hierarchical,
                 department wise or project-based, allowing
                 deployment and utilization of assets across the
                 enterprise enabling an optimized utilization
-                resulting in better ROI from assets.</p>
+                resulting in better ROI from assets.
+            </p>
         </div>
     </section>
     <!-- ================= Footer ================= -->
